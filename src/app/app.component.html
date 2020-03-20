@@ -1,0 +1,31 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+   Testando API {{ title }}!
+  </h1>
+  
+  <p><input type="text" #buscar/> <input type="button" (click)="pesquisarServico(buscar)" value="Pesquisar"/>
+
+    <ul>
+        <li *ngFor="let srv of servicos" style="text-align: left">
+          <p>Id:{{srv.id}} Nome:{{srv.nome}} - {{srv.conteudo}} <input type="button" value="Editar" (click)="editService(srv)"/> <input type="button" value="Excluir" (click)="deleteService(srv)"/></p>
+        </li>
+      </ul>
+
+      <p>Editar: </p>
+      <p>Nome : <input type="text"  [(ngModel)]="updtServico.nome"></p>
+      <p>Descrição : <input type="text" [(ngModel)]="updtServico.descricao"></p>
+      <p>Conteudo : <input type="text"  [(ngModel)]="updtServico.conteudo"></p>
+      <p>Imagem : <input type="text" [(ngModel)]="updtServico.img"></p>
+      <p><input type="button" (click)="updtService(updtServico)" value="Atualizar"></p>
+
+      <p>Inserir: </p>
+      <p>Nome : <input type="text" value="" #nome></p>
+      <p>Descrição : <input type="text" value="" #descricao></p>
+      <p>Conteudo : <input type="text" value="" #conteudo></p>
+      <p>Imagem : <input type="text" value="" #img></p>
+      <p><input type="button" (click)="inserirServico(nome,descricao,conteudo,img)" value="Inserir"></p>
+
+</div>
+
+<router-outlet></router-outlet>
